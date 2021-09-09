@@ -1,6 +1,8 @@
 package lab1;
 
 public class Main {
-  Hero hero = new Hero("Walk");
-
+    public static void main(String[] args) {
+        System.out.println("Input move strategy for your hero");
+        String moveStrategy = System.in.toString();
+    }
 }
