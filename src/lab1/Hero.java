@@ -18,6 +18,8 @@ public class Hero {
             moveStrategy = new CarStrategy();
         } else if (Objects.equals(moveKind, "Walk")) {
             moveStrategy = new WalkStrategy();
+        } else {
+            System.out.println("Unknown move strategy");
         }
     }
     public void move(Point point){
