@@ -2,6 +2,7 @@ package lab1;
 
 import lab1.strategies.*;
 
+import java.awt.Point;
 import java.util.Objects;
 
 public class Hero {
@@ -11,7 +12,8 @@ public class Hero {
         return currentPoint;
     }
 
-    public Hero(String moveKind) {
+    public Hero(Point currentPoint, String moveKind) {
+        this.currentPoint = currentPoint;
         if (Objects.equals(moveKind, "Car")) {
             moveStrategy = new CarStrategy();
         } else if (Objects.equals(moveKind, "Walk")) {
@@ -19,7 +21,7 @@ public class Hero {
         }
     }
     public void move(Point point){
-        System.out.println("Person goes to another point by " + moveStrategy.getMoveStrategy());
+        System.out.println("Person goes to (" + currentPoint.x + "; " + currentPoint.y + ") from (" + point.x + "; " + point.y + ") by " + moveStrategy.getMoveStrategy());
         currentPoint = point;
     }
 }
