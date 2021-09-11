@@ -11,6 +11,10 @@ public class Hero {
 
     public Hero(Point point, String moveKind) {
         this.currentPoint = point;
+        setMoveStrategy(moveKind);
+    }
+
+    public void setMoveStrategy(String moveKind) {
         if (Objects.equals(moveKind, "Car")) {
             moveStrategy = new CarStrategy();
         } else if (Objects.equals(moveKind, "Walk")) {
@@ -19,14 +23,11 @@ public class Hero {
             System.out.println("Unknown move strategy. Move strategy set default value(Walk)");
             moveStrategy = new WalkStrategy();
         }
-    }
-
-    public Point getCurrentPoint() {
-        return currentPoint;
+        System.out.println("Move strategy set " + moveKind);
     }
 
     public void move(Point point) {
-        System.out.printf("Person goes to (%d; %d) from (%d; %d) by %s", currentPoint.x, currentPoint.y, point.x, point.y, moveStrategy.getMoveStrategy());
+        System.out.printf("Hero goes to (%d; %d) from (%d; %d) by %s", currentPoint.x, currentPoint.y, point.x, point.y, moveStrategy.getMoveStrategy());
         currentPoint = point;
     }
 }
