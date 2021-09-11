@@ -9,10 +9,6 @@ public class Hero {
     private Point currentPoint;
     private MoveStrategy moveStrategy;
 
-    public Point getCurrentPoint() {
-        return currentPoint;
-    }
-
     public Hero(Point point, String moveKind) {
         this.currentPoint = point;
         if (Objects.equals(moveKind, "Car")) {
@@ -20,8 +16,13 @@ public class Hero {
         } else if (Objects.equals(moveKind, "Walk")) {
             moveStrategy = new WalkStrategy();
         } else {
-            System.out.println("Unknown move strategy");
+            System.out.println("Unknown move strategy. Move strategy set default value(Walk)");
+            moveStrategy = new WalkStrategy();
         }
+    }
+
+    public Point getCurrentPoint() {
+        return currentPoint;
     }
 
     public void move(Point point) {
