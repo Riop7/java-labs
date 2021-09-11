@@ -13,8 +13,8 @@ public class Hero {
         return currentPoint;
     }
 
-    public Hero(Point currentPoint, String moveKind) {
-        this.currentPoint = currentPoint;
+    public Hero(Point point, String moveKind) {
+        this.currentPoint = point;
         if (Objects.equals(moveKind, "Car")) {
             moveStrategy = new CarStrategy();
         } else if (Objects.equals(moveKind, "Walk")) {
@@ -24,8 +24,8 @@ public class Hero {
         }
     }
 
-    public void move(Point point){
-        System.out.println("Person goes to (" + currentPoint.x + "; " + currentPoint.y + ") from (" + point.x + "; " + point.y + ") by " + moveStrategy.getMoveStrategy());
+    public void move(Point point) {
+        System.out.printf("Person goes to (%d; %d) from (%d; %d) by %s", currentPoint.x, currentPoint.y, point.x, point.y, moveStrategy.getMoveStrategy());
         currentPoint = point;
     }
 }
