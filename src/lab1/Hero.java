@@ -8,6 +8,7 @@ import java.util.Objects;
 public class Hero {
     private Point currentPoint;
     private MoveStrategy moveStrategy;
+
     public Point getCurrentPoint() {
         return currentPoint;
     }
@@ -22,6 +23,7 @@ public class Hero {
             System.out.println("Unknown move strategy");
         }
     }
+
     public void move(Point point){
         System.out.println("Person goes to (" + currentPoint.x + "; " + currentPoint.y + ") from (" + point.x + "; " + point.y + ") by " + moveStrategy.getMoveStrategy());
         currentPoint = point;
