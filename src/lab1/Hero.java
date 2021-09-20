@@ -23,7 +23,7 @@ public class Hero {
             System.out.println("Unknown move strategy. Move strategy set default value(Walk)");
             moveStrategy = new WalkStrategy();
         }
-        System.out.println("Move strategy set " + moveKind);
+        System.out.println("Move strategy set " + moveStrategy.getMoveStrategy());
     }
 
     public void move(Point point) {
